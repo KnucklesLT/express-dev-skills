@@ -2,7 +2,7 @@
 import { Skill } from '../models/skill.js'
 
 // This ^^ takes the place of the import we were using previously, so we can delete it!
-import { skills } from '../data/skill-data.js'
+//import { skills } from '../data/skill-data.js'
 
 // Inside the index controller, use the Skills model to query for ALL skills
 function index(req, res) {
@@ -18,6 +18,21 @@ function index(req, res) {
   })
 }
 
+function newSkill(req,res) {
+  res.render('skills/new')
+}
+
+function create(req,res) {
+  Skill.create(req.body)
+  .then(skill => {
+    res.redirect('/skills')
+  })
+  .catch(error => {
+    console.log(error)
+    res.redirect('/skills')
+  })
+}
+
 // function index(req, res) {
 //   res.render('skills/index', {
 //     skills: skills
@@ -25,5 +40,7 @@ function index(req, res) {
 // }
 
 export {
-  index
+  index,
+  newSkill as new,
+  create,
 }
