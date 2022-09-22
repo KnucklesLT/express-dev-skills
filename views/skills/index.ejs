@@ -11,7 +11,9 @@
   <ul>
     <% skills.forEach(skill => { %>
       <li>
-				<%= skill.text %>
+				<a href="/skills/<%= skill._id %>"><%= skill.text %></a>
+        -
+        <%= skill.possess ? 'Yes!' : 'Not Yet.' %> 
 			</li>
     <% }) %>
     <a href="/skills/new">Add Skill</a>

@@ -4,6 +4,7 @@ const Schema = mongoose.Schema
 
 const skillSchema = new Schema({
   text: String,
+  possess: String,
 })
 
 const Skill = mongoose.model('Todo', skillSchema)
